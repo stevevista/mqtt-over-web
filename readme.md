@@ -124,7 +124,29 @@ Subscribe to a topic and listen, return a unscribable object
 
 -------------------------------------------------------
 ## Aliyun Iot API
+-------------------------------------------------------
+### server(serviceName, [{productKey, deviceName}], callback)
+-------------------------------------------------------
+### postProps([{productKey, deviceName}], params)
+-------------------------------------------------------
+### postEvent(eventName, [{productKey, deviceName}], params)
+-------------------------------------------------------
+### addTopo({productKey, deviceName, deviceSecret})
+-------------------------------------------------------
+### deleteTopo({productKey, deviceName})
+-------------------------------------------------------
+### getTopo()
+-------------------------------------------------------
+### login({productKey, deviceName, deviceSecret})
+-------------------------------------------------------
+### logout({productKey, deviceName})
 
+-------------------------------------------------------
+### brokeMqttOverSocket(client, socket, [incomingProcess], [outcomingProcess])
+* `client`: Server side `Client`
+* `socket`: WebSocket instance
+* `incomingProcess`: function(topic, payload), convert received payload
+* `outcomingProcess`: function(topic, payload), convert payload before publish
 
 ## Example
 ### On Web
