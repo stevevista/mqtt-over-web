@@ -105,15 +105,6 @@ Close the client, return `Promise`
   optional.
 
 -------------------------------------------------------
-### Client#rpc(pubTopic, replyTopic, message, timeout = 10000)
-
-public message and wait for response object on replyTopic, return as `Promise`
-
-* `pubTopic`: publish topic
-* `replyTopic`: reply topic which client subscribe for result
-* `message`: `Object`
-
--------------------------------------------------------
 ### Client#subscribeAndListen(topic, callback)
 
 Subscribe to a topic and listen, return a unscribable object
@@ -126,6 +117,14 @@ Subscribe to a topic and listen, return a unscribable object
 ## Aliyun Iot API
 -------------------------------------------------------
 ### server(serviceName, [{productKey, deviceName}], callback)
+-------------------------------------------------------
+### Client#rpc(pubTopic, replyTopic, message, timeout = 10000)
+
+public message and wait for response object on replyTopic, return as `Promise`
+
+* `pubTopic`: publish topic
+* `replyTopic`: reply topic which client subscribe for result
+* `message`: `Object`
 -------------------------------------------------------
 ### postProps([{productKey, deviceName}], params)
 -------------------------------------------------------

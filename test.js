@@ -7,7 +7,7 @@ const device = new Client({
   "deviceSecret": "GTpahEdeOE4r1W3unpz3tF2Q3LA6Cx0r"
 })
 
-/*
+
 //device.on('connect', () => {
 //  console.log('Connect successfully!');
   console.log('Post properties every 5 seconds...');
@@ -27,11 +27,11 @@ const device = new Client({
     console.log('Received a message: ', JSON.stringify(data))
   });
 //});
-*/
 
-device.serve('/#', (data) => {
-  console.log('Received a message: ', JSON.stringify(data))
-});
+
+//device.serve('/#', (data) => {
+//  console.log('Received a message: ', JSON.stringify(data))
+//});
 
 device.on('error', err => {
   console.error(err);
