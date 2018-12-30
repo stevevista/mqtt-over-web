@@ -194,3 +194,63 @@ router.all('/ws', async ctx => {
 })
 
 ```
+
+## GraphQL schema
+```
+type Query {
+  name: String!
+}
+
+input ConnectOption {
+  clientId: String!
+  brokerUrl: String!
+  username: String
+  password: String
+  keepalive: Int
+  reconnectPeriod: Int
+  connectTimeout: Int
+}
+
+input PubOption {
+  qos: Int
+  retain: Boolean
+}
+
+type Mutation {
+  mqttConnect(option: ConnectOption!): Int!
+  mqttSubscribe(clientId: String!, topic: [String!]!, qos: Int): Int!
+  mqttPublish(clientId: String!, topic: String!, message: String!, option: PubOption): Int!
+  mqttUnSubscribe(clientId: String!, topic: [String!]!): Int!
+  mqttEnd(clientId: String!): Int!
+}
+
+type TopicMessage {
+  topic: String!
+  message: String!
+}
+
+type MQTTNotify {
+  name: String!
+  message: String
+  actionId: Int
+  actionName: String
+  status: String
+}
+
+type Subscription {
+  mqttMessage(clientId: String!): TopicMessage!
+  mqttNotify(clientId: String!) : MQTTNotify!
+}
+
+```
+
+### Usage
+```
+const {Schema} = require('mqtt-over-web')
+const {Koa, GraphQL} = require('koa-app-server')
+
+const app = new Koa()
+
+app.use(GraphQL('/graphql', Schema, {}))
+
+```

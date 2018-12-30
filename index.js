@@ -9,9 +9,11 @@ if (isBrowser) {
 } else {
   const brokeMqttOverSocket = require('./lib/web-broke')
   const Client = require('./lib/local-client')
+  const Schema = require('./lib/schema')
   
   module.exports = {
     Client,
-    brokeMqttOverSocket
+    brokeMqttOverSocket,
+    Schema
   }  
 }
