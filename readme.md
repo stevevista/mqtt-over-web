@@ -1,8 +1,7 @@
 
 ## API
 -------------------------------------------------------
-### Client(options) [Server Side]
-### Client(url) [Web Side]
+### Client(options)
 
 * `options` including:
   * `aliyun`: is this a aliyun iot client, default `false`
@@ -12,8 +11,7 @@
   * `deviceSecret`
   * `username`
   * `password`
-
-* `url`: Websocket URL
+  * `url`: [web side], websocket URL
 
 #### Event `'connect'`
 Emitted on successful (re)connection
@@ -112,6 +110,12 @@ Subscribe to a topic and listen, return a unscribable object
 * `topic` is a `String`.
   MQTT `topic` wildcard characters are supported (`+` - for single level and `#` - for multi level)
 * `callback(message)`
+
+-------------------------------------------------------
+### Client.sendMessage(clientArg, topic, message, optinos)
+
+Publish message and then end connection
+* `clientArg` options for create client connection
 
 -------------------------------------------------------
 ## Aliyun Iot API
