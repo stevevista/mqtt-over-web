@@ -19,6 +19,9 @@
   "homepage": "https://github.com/stevevista/mqtt-over-web#readme",
   "dependencies": {
     "debug": "^4.1.0",
+    "graphql": "^14.0.2",
+    "graphql-subscriptions": "^1.0.0",
+    "graphql-tools": "^4.0.3",
     "mqtt": "^2.18.8"
   }
 }
