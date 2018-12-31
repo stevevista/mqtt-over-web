@@ -7,7 +7,7 @@ const device = new Client({
   "deviceSecret": "GTpahEdeOE4r1W3unpz3tF2Q3LA6Cx0r"
 })
 
-
+/*
 //device.on('connect', () => {
 //  console.log('Connect successfully!');
   console.log('Post properties every 5 seconds...');
@@ -35,4 +35,9 @@ const device = new Client({
 
 device.on('error', err => {
   console.error(err);
+})
+
+*/
+device.subscribeAndListen(['#'], (err, topic, message, matched, index) => {
+  console.log(topic, message, matched, index)
 })

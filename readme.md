@@ -109,7 +109,15 @@ Subscribe to a topic and listen, return a unscribable object
 
 * `topic` is a `String`.
   MQTT `topic` wildcard characters are supported (`+` - for single level and `#` - for multi level)
-* `callback(message)`
+* `callback(err, topic, message, matched, matched_index)`
+
+```
+client.subscribeAndListen(['/a/#', '/b/+/test/#'], cb)
+err: null
+topic: /b/c/test/y/w
+matched: ['c', ['y', 'w']]
+matched_index: 1
+```
 
 -------------------------------------------------------
 ### Client.sendMessage(clientArg, topic, message, optinos)
