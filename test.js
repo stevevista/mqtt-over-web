@@ -1,5 +1,6 @@
 
 const {Client} = require('./index')
+
 const device = new Client({
   aliyun: true,
   "productKey": "a11vWRALINU",
@@ -7,9 +8,9 @@ const device = new Client({
   "deviceSecret": "GTpahEdeOE4r1W3unpz3tF2Q3LA6Cx0r"
 })
 
-/*
-//device.on('connect', () => {
-//  console.log('Connect successfully!');
+
+device.on('connect', () => {
+  console.log('Connect successfully!');
   console.log('Post properties every 5 seconds...');
   setInterval(() => {
     const params = {
@@ -26,7 +27,9 @@ const device = new Client({
   device.serve('property/set', (data) => {
     console.log('Received a message: ', JSON.stringify(data))
   });
-//});
+
+  device.unsubscribe('#')
+});
 
 
 //device.serve('/#', (data) => {
@@ -37,7 +40,6 @@ device.on('error', err => {
   console.error(err);
 })
 
-*/
-device.subscribeAndListen(['#'], (err, topic, message, matched, index) => {
-  console.log(topic, message, matched, index)
+device.subscribeAndListen('#', (err, topic, message, matched, index) => {
+  console.log(topic, matched, index)
 })

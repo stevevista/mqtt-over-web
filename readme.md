@@ -162,7 +162,7 @@ public message and wait for response object on replyTopic, return as `Promise`
 ## Example
 ### On Web
 ```
-import {Client} from 'mqtt-over-web'
+import {Client} from 'mqtt-over-web/web'
 
 const client = new Client('http://localhost/ws')
 this.client.on('connect', () => {
@@ -254,11 +254,11 @@ type Subscription {
 
 ### Usage
 ```
-const {Schema} = require('mqtt-over-web')
+const {ExecutableSchema} = require('mqtt-over-web')
 const {Koa, GraphQL} = require('koa-app-server')
 
 const app = new Koa()
 
-app.use(GraphQL('/graphql', Schema, {}))
+app.use(GraphQL('/graphql', ExecutableSchema, {}))
 
 ```
